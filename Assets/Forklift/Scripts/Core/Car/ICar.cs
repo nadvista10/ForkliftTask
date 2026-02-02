@@ -4,7 +4,8 @@ namespace Forklift.Core.Car
 {
     public interface ICar
     {
-        public IEngineSystem Engine { get; }
-        public IMovementSystem Movement { get; }
+        public ICarEngineSystem Engine { get; }
+        public ICarMovementSystem Movement { get; }
+        public ICarForkSystem Fork { get; }
     }
 }

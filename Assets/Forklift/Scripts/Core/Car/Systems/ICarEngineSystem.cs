@@ -1,6 +1,6 @@
 namespace Forklift.Core.Car.Systems
 {
-    public interface IEngineSystem
+    public interface ICarEngineSystem
     {
         public enum EngineStatus
         {
@@ -8,15 +8,9 @@ namespace Forklift.Core.Car.Systems
             Starting,
             Running
         }
-    }
 
-    public interface IMovementSystem
-    {
+        public EngineStatus Status { get; set; }
 
-    }
-
-    public interface IForkSystem
-    {
-
+        public float EvaluateTorque();
     }
 }
