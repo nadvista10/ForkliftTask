@@ -44,7 +44,7 @@ WheelCollider:
   m_Radius: 0.19
   m_SuspensionSpring:
     spring: 10000
-    damper: 1000
+    damper: 600
     targetPosition: 0.5
   m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
@@ -168,7 +168,7 @@ WheelCollider:
   m_Radius: 0.19
   m_SuspensionSpring:
     spring: 10000
-    damper: 1000
+    damper: 600
     targetPosition: 0.5
   m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
@@ -449,7 +449,7 @@ WheelCollider:
   m_Radius: 0.19
   m_SuspensionSpring:
     spring: 10000
-    damper: 1000
+    damper: 600
     targetPosition: 0.5
   m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
@@ -608,7 +608,7 @@ WheelCollider:
   m_Radius: 0.19
   m_SuspensionSpring:
     spring: 10000
-    damper: 1000
+    damper: 600
     targetPosition: 0.5
   m_SuspensionDistance: 0.1
   m_ForceAppPointDistance: 0
@@ -766,8 +766,8 @@ Rigidbody:
   m_GameObject: {fileID: 7699325066534049280}
   serializedVersion: 5
   m_Mass: 300
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 0.6
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -808,8 +808,9 @@ MonoBehaviour:
   - {fileID: 6280572601667770565}
   - {fileID: 5516285855612973120}
   - {fileID: 1429882706361703353}
-  <MoveBackToqueScale>k__BackingField: 0.5
-  <BrakeTorque>k__BackingField: 1000
+  <MoveBackToqueScale>k__BackingField: 0.78
+  <BrakeTorque>k__BackingField: 60
+  <AutoBrakeScale>k__BackingField: 0.36
   <MaxSteerAngleDeg>k__BackingField: 20
   <StandartTorque>k__BackingField: 100
 --- !u!1 &8087896905829586969
