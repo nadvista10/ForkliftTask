@@ -28,5 +28,10 @@ namespace Forklift.App.Car.Systems
             var newPosition = Vector3.Lerp(_data.BotPositionLocal, _data.TopPositionLocal, valueNorm);
             _data.Lift.transform.localPosition = newPosition;
         }
+
+        public float GetLiftSpeed()
+        {
+            return _data.LiftSpeed;
+        }
     }
 }

@@ -27,17 +27,21 @@ namespace Forklift.App.Car.Systems
         }
 
         private ICarEngineSystem _engine;
+        private ICarFuelSystem _fuel;
         private IMovementDataProvider _data;
         private MoveStatus _status;
 
-        public CarMovementSystem(IMovementDataProvider data, ICarEngineSystem engine)
+        public CarMovementSystem(IMovementDataProvider data,
+            ICarEngineSystem engine,
+            ICarFuelSystem fuel)
         {
             _data = data;
             _engine = engine;
             _status = MoveStatus.Stopped;
+            _fuel = fuel;
         }
 
-        public void SetGas(float powerNorm)
+        public void SetGas(float powerNorm, float dt)
         {
             UpdateMoveStatus();
             powerNorm = Mathf.Clamp(powerNorm, -1f, 1f);
@@ -45,18 +49,18 @@ namespace Forklift.App.Car.Systems
             if (Mathf.Approximately(powerNorm, 0))
                 ApplyBrake(_data.AutoBrakeScale);
             else if (powerNorm > 0)
-                ForwardGas(powerNorm);
+                ForwardGas(powerNorm, dt);
             else
-                BackwardGas(Mathf.Abs(powerNorm));
+                BackwardGas(Mathf.Abs(powerNorm), dt);
         }
 
-        public void SetSteer(float valueNorm)
+        public void SetSteer(float valueNorm, float dt)
         {
             var deg = Mathf.Clamp(valueNorm, -1f, 1f) * _data.MaxSteerAngleDeg;
             ApplySteer(deg);
         }
 
-        private void ForwardGas(float powerNorm)
+        private void ForwardGas(float powerNorm, float dt)
         {
             if (_status == MoveStatus.MoveBack)
             {
@@ -64,27 +68,34 @@ namespace Forklift.App.Car.Systems
                 return;
             }
 
-            var torque = _engine.EvaluateTorque() * powerNorm;
-            ApplyTorque(torque);
+            var torque = powerNorm;
+            ApplyTorque(torque, dt);
         }
-        private void BackwardGas(float powerNorm)
+        private void BackwardGas(float powerNorm, float dt)
         {
             if (_status == MoveStatus.MoveForward)
             {
                 ApplyBrake(powerNorm);
                 return;
             }
-            var torque = _engine.EvaluateTorque() * powerNorm;
-            torque *= _data.MoveBackToqueScale;
-            ApplyTorque(-torque);
+            var torque = powerNorm * _data.MoveBackToqueScale;
+            ApplyTorque(-torque, dt);
         }
         
-        private void ApplyTorque(float torque)
+        private void ApplyTorque(float torqueNorm, float dt)
         {
+            var absTorque = Mathf.Abs(torqueNorm);
+            var fuelRequired = _engine.TorqueToFuelConsumption(absTorque);
+            var fuelFull = _fuel.FuelPc;
+
+            var availableFuel = Mathf.Min(fuelFull, fuelRequired);
+            var availableTorque = _engine.EvaluateTorque(availableFuel) * Mathf.Sign(torqueNorm);
+            _fuel.Subtract(availableFuel * dt);
+
             foreach (var wheel in _data.BrakeWheels)
                 wheel.brakeTorque = 0f;
             foreach (var wheel in _data.DriveWheels)
-                wheel.motorTorque = torque;
+                wheel.motorTorque = availableTorque;
         }
 
         private void ApplyBrake(float powerNorm)

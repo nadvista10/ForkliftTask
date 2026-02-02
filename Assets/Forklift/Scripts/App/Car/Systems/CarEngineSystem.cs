@@ -1,4 +1,3 @@
-using System;
 using Forklift.Core.Car.Systems;
 
 namespace Forklift.App.Car.Systems
@@ -8,6 +7,7 @@ namespace Forklift.App.Car.Systems
         public interface IEngineDataProvider
         {
             public float StandartTorque { get; }
+            public float TorqueToFuelConsumption { get; }
         }
 
         public ICarEngineSystem.EngineStatus Status { get; set; }
@@ -19,11 +19,21 @@ namespace Forklift.App.Car.Systems
             _data = data;
         }
 
-        public float EvaluateTorque()
+        public float EvaluateTorque(float fuelConsumption)
         {
             if (Status == ICarEngineSystem.EngineStatus.Running)
-                return _data.StandartTorque;
+            {
+                if (_data.TorqueToFuelConsumption == 0)
+                    return _data.StandartTorque;
+                
+                return _data.StandartTorque * fuelConsumption / _data.TorqueToFuelConsumption;
+            }
             return 0f;
+        }
+
+        public float TorqueToFuelConsumption(float torque)
+        {
+            return torque * _data.TorqueToFuelConsumption;
         }
     }
 }

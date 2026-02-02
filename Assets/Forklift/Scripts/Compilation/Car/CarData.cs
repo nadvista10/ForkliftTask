@@ -44,6 +44,10 @@ namespace Forklift.Compilation.Car
         [field: Min(0f)]
         public float StandartTorque { get; private set; }
 
+        [field: SerializeField]
+        [field: Min(0f)]
+        public float TorqueToFuelConsumption { get; private set; }
+
         [field: Header("Lift")]
         [field: SerializeField]
         [field: Min(0)]

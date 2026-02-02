@@ -1,5 +1,6 @@
 using Forklift.Core.Car.Systems;
 using Forklift.Input;
+using UnityEngine;
 using Zenject;
 
 namespace Forklift.Compilation.Car.Controllers
@@ -23,10 +24,10 @@ namespace Forklift.Compilation.Car.Controllers
         public void Tick()
         {
             var gasInput = _input.GetMove();
-            _movement.SetGas(gasInput);
+            _movement.SetGas(gasInput, Time.deltaTime);
 
             var steerInput = _input.GetSteer();
-            _movement.SetSteer(steerInput);
+            _movement.SetSteer(steerInput, Time.deltaTime);
         }
     }
 }

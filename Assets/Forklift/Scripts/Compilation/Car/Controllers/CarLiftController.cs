@@ -10,15 +10,13 @@ namespace Forklift.Compilation.Car.Controllers
     {
         private ICarLiftInputProvider _input;
         private ICarLiftSystem _lift;
-        private CarLiftSystem.ILiftDataProvider _liftData;
 
         private float _progress;
 
-        public CarLiftController(ICarLiftInputProvider input, ICarLiftSystem lift, CarLiftSystem.ILiftDataProvider data)
+        public CarLiftController(ICarLiftInputProvider input, ICarLiftSystem lift)
         {
             _input = input;
             _lift = lift;
-            _liftData = data;
         }
 
         public void Initialize()
@@ -29,7 +27,7 @@ namespace Forklift.Compilation.Car.Controllers
 
         public void Tick()
         {
-            var delta = Time.deltaTime * _input.GetLift() * _liftData.LiftSpeed;
+            var delta = Time.deltaTime * _input.GetLift() * _lift.GetLiftSpeed();
             _progress = Mathf.Clamp01(_progress + delta);
             _lift.SetLift(_progress);
         }

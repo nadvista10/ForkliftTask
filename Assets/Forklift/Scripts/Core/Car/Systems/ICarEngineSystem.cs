@@ -11,6 +11,7 @@ namespace Forklift.Core.Car.Systems
 
         public EngineStatus Status { get; set; }
 
-        public float EvaluateTorque();
+        public float EvaluateTorque(float fuelConsumption);
+        public float TorqueToFuelConsumption(float torque);
     }
 }

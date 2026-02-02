@@ -18,6 +18,7 @@ namespace Forklift.Compilation.Car.Di
             Container.BindInterfacesAndSelfTo<CarEngineSystem>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<CarMovementSystem>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<CarLiftSystem>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<CarFuelSystem>().FromNew().AsSingle();
 
             Container.BindInterfacesAndSelfTo<BaseCar>().FromNew().AsSingle().NonLazy();
 
