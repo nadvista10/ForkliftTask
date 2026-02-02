@@ -1,5 +1,5 @@
 {
-    "name": "UiAsm",
+    "name": "VisualAsm",
     "rootNamespace": "",
     "references": [
         "GUID:2ffe8817ded68e44eb339192f198dc38",
