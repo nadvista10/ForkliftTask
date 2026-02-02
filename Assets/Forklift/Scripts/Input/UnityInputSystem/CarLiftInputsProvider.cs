@@ -2,9 +2,9 @@ using Zenject;
 
 namespace Forklift.Input.UnityInputSystem
 {
-    public class CarForkInputsProvider : BaseCarInputProvider, ICarForkInputProvider
+    public class CarLiftInputsProvider : BaseCarInputProvider, ICarLiftInputProvider
     {
-        public CarForkInputsProvider(GameInput input) : base(input)
+        public CarLiftInputsProvider(GameInput input) : base(input)
         {
         }
 

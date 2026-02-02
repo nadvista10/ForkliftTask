@@ -6,6 +6,6 @@ namespace Forklift.Core.Car
     {
         public ICarEngineSystem Engine { get; }
         public ICarMovementSystem Movement { get; }
-        public ICarForkSystem Fork { get; }
+        public ICarLiftSystem Fork { get; }
     }
 }

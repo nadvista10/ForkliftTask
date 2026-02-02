@@ -309,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 4182536520255291720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.21500003, z: 0.44}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -809,10 +809,14 @@ MonoBehaviour:
   - {fileID: 5516285855612973120}
   - {fileID: 1429882706361703353}
   <MoveBackToqueScale>k__BackingField: 0.78
-  <BrakeTorque>k__BackingField: 60
-  <AutoBrakeScale>k__BackingField: 0.36
-  <MaxSteerAngleDeg>k__BackingField: 20
+  <BrakeTorque>k__BackingField: 1
+  <AutoBrakeScale>k__BackingField: 0
+  <MaxSteerAngleDeg>k__BackingField: 20.2
   <StandartTorque>k__BackingField: 100
+  <LiftSpeed>k__BackingField: 0.5
+  <TopPositionLocal>k__BackingField: {x: 0, y: 0.63, z: 0.44}
+  <BotPositionLocal>k__BackingField: {x: 0, y: -1.012, z: 0.44}
+  <Lift>k__BackingField: {fileID: 7358532124285744876}
 --- !u!1 &8087896905829586969
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="UniTask.Addressables.csproj" />
   <Project Path="Unity.AI.Navigation.Editor.csproj" />
-  <Project Path="CoreAsm.csproj" />
+  <Project Path="CompAsm.csproj" />
   <Project Path="Unity.Multiplayer.Center.Common.csproj" />
   <Project Path="Unity.InputSystem.ForUI.csproj" />
   <Project Path="Unity.AI.Navigation.csproj" />
@@ -64,7 +64,7 @@
   <Project Path="Zenject-PoolMonitor-Editor.csproj" />
   <Project Path="InputAsm.csproj" />
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.csproj" />
-  <Project Path="CompAsm.csproj" />
+  <Project Path="CoreAsm.csproj" />
   <Project Path="Unity.Rendering.LightTransport.Editor.csproj" />
   <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />
   <Project Path="UniTask.Editor.csproj" />

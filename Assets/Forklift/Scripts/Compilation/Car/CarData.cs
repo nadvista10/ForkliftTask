@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace Forklift.Compilation.Car
 {
-    public class CarData : MonoBehaviour, CarEngineSystem.IEngineDataProvider, CarMovementSystem.IMovementDataProvider
+    public class CarData : MonoBehaviour,
+        CarEngineSystem.IEngineDataProvider,
+        CarMovementSystem.IMovementDataProvider,
+        CarLiftSystem.ILiftDataProvider
     {
         [field: Header("Parts")]
         [field: SerializeField]
@@ -40,5 +43,19 @@ namespace Forklift.Compilation.Car
         [field: SerializeField]
         [field: Min(0f)]
         public float StandartTorque { get; private set; }
+
+        [field: Header("Lift")]
+        [field: SerializeField]
+        [field: Min(0)]
+        public float LiftSpeed { get; private set; }
+
+        [field: SerializeField]
+        public Vector3 TopPositionLocal { get; private set; }
+
+        [field: SerializeField]
+        public Vector3 BotPositionLocal { get; private set; }
+
+        [field: SerializeField]
+        public Transform Lift { get; private set; }
     }
 }

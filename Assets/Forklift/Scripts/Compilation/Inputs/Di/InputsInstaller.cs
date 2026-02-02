@@ -11,7 +11,7 @@ namespace Forklift.Compilation.Inputs.Di
             
             Container.BindInterfacesAndSelfTo<CarEngineInputsProvider>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<CarMovementInputsProvider>().FromNew().AsSingle();
-            Container.BindInterfacesAndSelfTo<CarForkInputsProvider>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<CarLiftInputsProvider>().FromNew().AsSingle();
         }
     }
 }

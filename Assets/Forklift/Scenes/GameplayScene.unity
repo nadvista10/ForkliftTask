@@ -901,31 +901,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1108909357025536537, guid: fbb983198568a054b855cfd35528afeb, type: 3}
       propertyPath: <BrakeTorque>k__BackingField
-      value: 60
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1108909357025536537, guid: fbb983198568a054b855cfd35528afeb, type: 3}
       propertyPath: <AutoBrakeScale>k__BackingField
-      value: 0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1108909357025536537, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: <MoveBackToqueScale>k__BackingField
-      value: 0.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429882706361703353, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449194159909651655, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: m_LinearDamping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449194159909651655, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395979808464405890, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 600
+      propertyPath: <MaxSteerAngleDeg>k__BackingField
+      value: 20.2
       objectReference: {fileID: 0}
     - target: {fileID: 4515725972860870623, guid: fbb983198568a054b855cfd35528afeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -966,14 +950,6 @@ PrefabInstance:
     - target: {fileID: 4515725972860870623, guid: fbb983198568a054b855cfd35528afeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5516285855612973120, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280572601667770565, guid: fbb983198568a054b855cfd35528afeb, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 7699325066534049280, guid: fbb983198568a054b855cfd35528afeb, type: 3}
       propertyPath: m_Name

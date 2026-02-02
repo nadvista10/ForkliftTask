@@ -17,12 +17,13 @@ namespace Forklift.Compilation.Car.Di
 
             Container.BindInterfacesAndSelfTo<CarEngineSystem>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<CarMovementSystem>().FromNew().AsSingle();
-            Container.BindInterfacesAndSelfTo<CarForkSystem>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<CarLiftSystem>().FromNew().AsSingle();
 
             Container.BindInterfacesAndSelfTo<BaseCar>().FromNew().AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<CarMovementController>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CarEngineController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CarLiftController>().FromNew().AsSingle().NonLazy();
         }
     }
 }
