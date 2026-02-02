@@ -1,0 +1,17 @@
+{
+    "name": "UiAsm",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2ffe8817ded68e44eb339192f198dc38",
+        "GUID:3f11513a75d3e7f4da37f125f0eaf188"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
