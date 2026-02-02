@@ -1,3 +1,4 @@
+using System;
 using Forklift.Core.Car.Systems;
 
 namespace Forklift.App.Car.Systems
@@ -10,9 +11,22 @@ namespace Forklift.App.Car.Systems
             public float TorqueToFuelConsumption { get; }
         }
 
-        public ICarEngineSystem.EngineStatus Status { get; set; }
+        public event Action OnStatusChange;
+        public ICarEngineSystem.EngineStatus Status
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                _status = value;
+                OnStatusChange?.Invoke();
+            }    
+        }
 
         private IEngineDataProvider _data;
+        private ICarEngineSystem.EngineStatus _status;
 
         public CarEngineSystem(IEngineDataProvider data)
         {

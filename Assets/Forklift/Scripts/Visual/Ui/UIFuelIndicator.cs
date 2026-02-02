@@ -10,6 +10,7 @@ namespace Forklift.Visual.Ui
     {
         [SerializeField]
         private Image imageIndicator;
+
         [Inject]
         private ICarFuelSystem _fuel;
 

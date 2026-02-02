@@ -1,3 +1,5 @@
+using System;
+
 namespace Forklift.Core.Car.Systems
 {
     public interface ICarEngineSystem
@@ -9,6 +11,7 @@ namespace Forklift.Core.Car.Systems
             Running
         }
 
+        public event Action OnStatusChange;
         public EngineStatus Status { get; set; }
 
         public float EvaluateTorque(float fuelConsumption);
