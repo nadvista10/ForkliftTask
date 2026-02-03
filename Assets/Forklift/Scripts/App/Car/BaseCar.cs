@@ -9,7 +9,7 @@ namespace Forklift.App.Car
         public ICarMovementSystem Movement { get; private set; }
         public ICarLiftSystem Lift { get; private set; }
         public ICarFuelSystem Fuel { get; private set; }
-        
+
         public BaseCar(ICarEngineSystem engine,
             ICarMovementSystem movement,
             ICarLiftSystem fork,

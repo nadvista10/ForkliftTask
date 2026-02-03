@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Forklift.Compilation.Car.Controllers
 {
-    public class CarLiftController : ITickable, ICarSwitchable, IInitializable
+    public class CarLiftGrabController : ITickable, ICarSwitchable, IInitializable
     {
         public bool IsEnabled { get; private set; }
 
@@ -15,7 +15,7 @@ namespace Forklift.Compilation.Car.Controllers
 
         private float _progress;
 
-        public CarLiftController(ICarLiftInputProvider input, ICarLiftSystem lift)
+        public CarLiftGrabController(ICarLiftInputProvider input, ICarLiftSystem lift)
         {
             _input = input;
             _lift = lift;
@@ -46,7 +46,9 @@ namespace Forklift.Compilation.Car.Controllers
                 return;
 
             var delta = Time.deltaTime * _input.GetLift() * _lift.GetLiftSpeed();
+
             _progress = Mathf.Clamp01(_progress + delta);
+
             _lift.SetLift(_progress);
         }
     }

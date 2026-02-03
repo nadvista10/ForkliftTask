@@ -85,6 +85,11 @@ namespace Forklift.App.Car.Systems
         private void ApplyTorque(float torqueNorm, float dt)
         {
             var absTorque = Mathf.Abs(torqueNorm);
+
+            //Ограничение мощности при <50% заполненности бака
+            if(_fuel.FuelPc <= 0.5f)
+                absTorque = Mathf.Min(0.5f, absTorque);
+
             var fuelRequired = _engine.TorqueToFuelConsumption(absTorque);
             var fuelFull = _fuel.FuelPc;
 

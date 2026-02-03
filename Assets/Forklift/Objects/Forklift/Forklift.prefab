@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3275582109102445640}
   - component: {fileID: 1735573527873501889}
   m_Layer: 3
-  m_Name: FuelIndicator
+  m_Name: Filled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,8 +86,9 @@ GameObject:
   - component: {fileID: 864669499698247671}
   - component: {fileID: 8051795940344880229}
   - component: {fileID: 2907503449294291784}
+  - component: {fileID: 1367489255777013699}
   m_Layer: 3
-  m_Name: FuelBackground
+  m_Name: FuelIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,6 +152,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1367489255777013699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421210175925227131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432a73a0544d90843b8f1d6c004eb56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualAsm::Forklift.Visual.Ui.UIFuelIndicator
+  imageIndicator: {fileID: 1735573527873501889}
 --- !u!1 &947253381136335314
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,8 +447,9 @@ GameObject:
   - component: {fileID: 924055317411789443}
   - component: {fileID: 2565825023142529117}
   - component: {fileID: 4560530172443447439}
+  - component: {fileID: 3286708665076976134}
   m_Layer: 3
-  m_Name: Text (TMP)
+  m_Name: EngineStatusIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,6 +575,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3286708665076976134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210665675931227249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119f76d9a2078cc4db50b49de3c8abb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VisualAsm::Forklift.Visual.Ui.UIEngineStatusIndicator
+  label: {fileID: 4560530172443447439}
+  messageFormat: 'Engine Status: {0}'
 --- !u!1 &2791299855821745399
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +703,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3104709464665458915}
   - component: {fileID: 6498238527504463664}
-  - component: {fileID: 7134621645905441413}
   - component: {fileID: 2453019334611190736}
   m_Layer: 3
   m_Name: BackCamera
@@ -749,14 +777,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7134621645905441413
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2882079808557681038}
-  m_Enabled: 1
 --- !u!114 &2453019334611190736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +990,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7358532124285744876}
+  - component: {fileID: 5096143517110453022}
+  - component: {fileID: 1496793059508771319}
   m_Layer: 3
   m_Name: Fork
   m_TagString: Untagged
@@ -986,13 +1008,55 @@ Transform:
   m_GameObject: {fileID: 4182536520255291720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.63, z: 0.44}
+  m_LocalPosition: {x: 0, y: -0.074, z: 0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7478563994432537879}
   m_Father: {fileID: 1897218635906468759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5096143517110453022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182536520255291720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.65257853, y: 0.06438577, z: 0.751367}
+  m_Center: {x: 0, y: -0.03948003, z: 0.43097812}
+--- !u!65 &1496793059508771319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182536520255291720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.814209, y: 0.62242496, z: 0.07104552}
+  m_Center: {x: 0, y: 0.30865264, z: 0.0179798}
 --- !u!1 &4527922941947644671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1589,7 @@ MonoBehaviour:
   <AutoBrakeScale>k__BackingField: 0
   <MaxSteerAngleDeg>k__BackingField: 20.2
   <StandartTorque>k__BackingField: 100
+  <TorqueToFuelConsumption>k__BackingField: 0.01
   <LiftSpeed>k__BackingField: 0.5
   <TopPositionLocal>k__BackingField: {x: 0, y: 0.63, z: 0.44}
   <BotPositionLocal>k__BackingField: {x: 0, y: -1.012, z: 0.44}

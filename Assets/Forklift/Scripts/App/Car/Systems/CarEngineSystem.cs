@@ -22,7 +22,7 @@ namespace Forklift.App.Car.Systems
             {
                 _status = value;
                 OnStatusChange?.Invoke();
-            }    
+            }
         }
 
         private IEngineDataProvider _data;
@@ -39,7 +39,7 @@ namespace Forklift.App.Car.Systems
             {
                 if (_data.TorqueToFuelConsumption == 0)
                     return _data.StandartTorque;
-                
+
                 return _data.StandartTorque * fuelConsumption / _data.TorqueToFuelConsumption;
             }
             return 0f;
