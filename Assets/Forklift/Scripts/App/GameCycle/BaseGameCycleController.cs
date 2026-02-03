@@ -43,7 +43,7 @@ namespace Forklift.App.GameCycle
                     
                     await ExecuteStep(_currentStep, _cts.Token);
                     
-                    if (_cts.Token.IsCancellationRequested)
+                    if (_cts?.Token.IsCancellationRequested ?? true)
                         break;
                 }
             }

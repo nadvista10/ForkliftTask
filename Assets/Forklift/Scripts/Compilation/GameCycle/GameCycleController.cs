@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Forklift.App.GameCycle;
+using Forklift.App.World;
 using Forklift.Compilation.GameCycle.Stages;
 using Forklift.Core.Car;
 using Forklift.Core.SequenceExecuting;
@@ -20,6 +21,24 @@ namespace Forklift.Compilation.GameCycle
             public Color FadeStartColor;
             public Color FadeEndColor;
             public float FadeDurationSeconds;
+
+            [Header("Cube spawn")]
+            public Vector3 CubeThrowStartPosition;
+            public Vector3 CubeThrowEndPosition;
+            public Vector3 StandThrowStartPosition;
+            public float CubeThrowTime;
+            public float RotateOnThrowDegPerSecond;
+            public string IgnoreColisionLayerName;
+
+            [Header("Fly")]
+            public float CubeFlyUpDistance;
+            public float CubeFlyTime;
+            public float RotateOnFlyDegPerSecond;
+
+            [Header("Objects")]
+            public RigidbodyWithCollider Cube;
+            public TriggerObject CubeStand;
+            public Transform EndColliderTransform;
         }
 
         private GameCycleControllerData _data;
@@ -41,6 +60,20 @@ namespace Forklift.Compilation.GameCycle
             yield return new FadeStage(_data.FadeVolume,
                 _data.FadeStartColor, _data.FadeEndColor, _data.FadeDurationSeconds);
             yield return new EnableCarControllersStage(_switchables);
+
+            var throwStage = new CubeThrowStage(_data.CubeThrowStartPosition, _data.CubeThrowEndPosition,
+                _data.StandThrowStartPosition, _data.CubeThrowTime, _data.RotateOnThrowDegPerSecond,
+                _data.Cube.Rigidbody, _data.CubeStand.transform, _data.IgnoreColisionLayerName);
+            var transferStage = new CubeTransferStage(_data.Cube.Collider, _data.CubeStand, _data.EndColliderTransform);
+            var flyStage = new CubeFlyStage(_data.CubeFlyUpDistance, _data.CubeFlyTime,
+                 _data.RotateOnFlyDegPerSecond, _data.Cube.Rigidbody, _data.IgnoreColisionLayerName);
+
+            while(true)
+            {
+                yield return throwStage;
+                yield return transferStage;
+                yield return flyStage;
+            }
         }
     }
 }
