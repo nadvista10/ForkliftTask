@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using Forklift.Core.Car;
 using Forklift.Core.SequenceExecuting;
 
-namespace Forklift.Compilation.GameCycle.Stages
+namespace Forklift.App.GameCycle.Stages
 {
     public class EnableCarControllersStage : ISequenceStep
     {

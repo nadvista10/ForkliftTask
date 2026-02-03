@@ -24,7 +24,7 @@ namespace Forklift.Compilation.Car.Di
 
             Container.BindInterfacesAndSelfTo<CarMovementController>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CarEngineController>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<CarLiftGrabController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CarLiftController>().FromNew().AsSingle().NonLazy();
         }
     }
 }

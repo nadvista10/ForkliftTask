@@ -1,5 +1,3 @@
-using Zenject;
-
 namespace Forklift.Input.UnityInputSystem
 {
     public class CarLiftInputsProvider : BaseCarInputProvider, ICarLiftInputProvider

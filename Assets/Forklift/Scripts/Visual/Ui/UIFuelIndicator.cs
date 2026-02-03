@@ -1,4 +1,3 @@
-using System;
 using Forklift.Core.Car.Systems;
 using UnityEngine;
 using UnityEngine.UI;

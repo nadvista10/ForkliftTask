@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Forklift.Compilation.GameCycle.Stages
+namespace Forklift.App.GameCycle.Stages
 {
     public class FadeStage : ISequenceStep
     {

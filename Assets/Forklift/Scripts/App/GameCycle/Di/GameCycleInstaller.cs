@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using Zenject;
 
-namespace Forklift.Compilation.GameCycle.Di
+namespace Forklift.App.GameCycle.Di
 {
     public class GameCycleInstaller : MonoInstaller
     {

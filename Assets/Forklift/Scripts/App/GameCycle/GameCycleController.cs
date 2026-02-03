@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Forklift.App.GameCycle;
+using Forklift.App.GameCycle.Stages;
 using Forklift.App.World;
-using Forklift.Compilation.GameCycle.Stages;
 using Forklift.Core.Car;
 using Forklift.Core.SequenceExecuting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Zenject;
 
-namespace Forklift.Compilation.GameCycle
+namespace Forklift.App.GameCycle
 {
     public class GameCycleController : BaseGameCycleController, IInitializable
     {

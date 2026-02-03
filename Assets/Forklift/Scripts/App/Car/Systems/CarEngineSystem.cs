@@ -1,6 +1,5 @@
 using System;
 using Forklift.Core.Car.Systems;
-using UnityEngine;
 
 namespace Forklift.App.Car.Systems
 {
