@@ -1,12 +1,14 @@
 using System;
+using Forklift.Core.Car;
 using Forklift.Core.Car.Systems;
 using Forklift.Input;
-using Zenject;
 
 namespace Forklift.Compilation.Car.Controllers
 {
-    public class CarEngineController : IInitializable, IDisposable
+    public class CarEngineController : ICarSwitchable
     {
+        public bool IsEnabled { get; private set; }
+
         private ICarEngineInputsProvider _input;
         private ICarEngineSystem _engine;
 
@@ -16,15 +18,20 @@ namespace Forklift.Compilation.Car.Controllers
             _engine = engine;
         }
 
-        public void Initialize()
+        public void Enable()
         {
+            IsEnabled = true;
+
             _input.Enable();
             _input.OnSwitchButtonPress += OnSwitchPress;
         }
 
-        public void Dispose()
+        public void Disable()
         {
-            _input.OnSwitchButtonPress -= OnSwitchPress;
+            IsEnabled = false;
+
+            _input.Disable();
+            _input.OnSwitchButtonPress += OnSwitchPress;
         }
 
         private void OnSwitchPress()
