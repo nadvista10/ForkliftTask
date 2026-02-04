@@ -5,14 +5,14 @@ using Forklift.Input;
 
 namespace Forklift.Compilation.Car.Controllers
 {
-    public class CarEngineController : ICarSwitchable
+    public class CarEngineStartController : ICarSwitchable
     {
         public bool IsEnabled { get; private set; }
 
         private ICarEngineInputsProvider _input;
         private ICarEngineSystem _engine;
 
-        public CarEngineController(ICarEngineInputsProvider input, ICarEngineSystem engine)
+        public CarEngineStartController(ICarEngineInputsProvider input, ICarEngineSystem engine)
         {
             _input = input;
             _engine = engine;

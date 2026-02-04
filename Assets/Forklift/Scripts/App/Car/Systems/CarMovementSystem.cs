@@ -18,7 +18,6 @@ namespace Forklift.App.Car.Systems
             public float AutoBrakeScale { get; }
             public float MaxSteerAngleDeg { get; }
         }
-
         private enum MoveStatus
         {
             Stopped,

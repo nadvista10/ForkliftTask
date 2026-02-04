@@ -10,8 +10,6 @@ namespace Forklift.App.Car.Systems
             public float StandartTorque { get; }
             public float TorqueToFuelConsumption { get; }
         }
-
-        public event Action OnStatusChange;
         public ICarEngineSystem.EngineStatus Status
         {
             get
@@ -24,6 +22,8 @@ namespace Forklift.App.Car.Systems
                 OnStatusChange?.Invoke();
             }
         }
+
+        public event Action OnStatusChange;
 
         private IEngineDataProvider _data;
         private ICarEngineSystem.EngineStatus _status;
